@@ -1,0 +1,230 @@
+<style>
+    .oe_container {
+        font-family: "Inter", "Roboto", "Segoe UI", sans-serif;
+        padding: 40px 15px;
+    }
+    .oe_container.oe_dark {
+        background-color: #f8f9fa;
+        border-radius: 12px;
+    }
+    .oe_slogan {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    .oe_screenshot img {
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        max-width: 90%;
+        margin: 20px auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    .oe_screenshot img:hover {
+        transform: scale(1.02);
+    }
+    .text-center {
+        text-align: center;
+    }
+    .oe_mt32 {
+        margin-top: 32px;
+        color: #495057;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin: 20px 0;
+    }
+    .higa-section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+        font-family: "Inter", "Roboto", "Segoe UI", sans-serif;
+        color: #212529;
+    }
+    .higa-section h2 {
+        border-bottom: 2px solid #714B67;
+        padding-bottom: 6px;
+        color: #714B67;
+        font-size: 24px;
+        margin-top: 40px;
+    }
+    .higa-section p, .higa-section li {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    .higa-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .higa-table th, .higa-table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    .higa-table th {
+        background: #f4f0f3;
+    }
+    .higa-faq p {
+        margin: 14px 0;
+    }
+</style>
+
+<section class="oe_container">
+    <div class="col-md-12 text-center">
+        <h2 class="oe_slogan" style="font-size: 42px; color: #714B67; text-transform: uppercase; letter-spacing: 1px;">
+            <b>Hide Menus Per User</b>
+        </h2>
+        <h3 class="oe_slogan" style="opacity: 0.8; font-size: 22px; color: #212529;">
+            Total Control over User Access
+        </h3>
+        <p class="oe_mt32 text-center" style="font-size: 18px; color: #6c757d;">
+            Securely block selected modules on a per-user basis. Present empty lists, completely hide creation/editing buttons, and strictly restrict creation directly at the ORM level.
+        </p>
+        <p class="oe_mt32 text-center" style="font-size: 14px; color: #888;">
+            Compatible with Odoo 16.0 &middot; 17.0 &middot; 18.0 &middot; 19.0
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced feature-card">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
+                <b>1. Configure Blocked Modules via User Settings</b>
+            </h3>
+            <p class="oe_mt32 text-center" style="font-size: 16px;">
+                Open any User profile and find the new <b>"Blocked Modules"</b> tab. This native-looking integration gives administrators a straightforward way to manage permissions per user.
+            </p>
+            <div class="oe_demo oe_picture oe_screenshot text-center">
+                <img src="Usuario-ElegirLinea.png" alt="User Form Configuration Tab">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced feature-card">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
+                <b>2. Select Root Menus to Restrict</b>
+            </h3>
+            <p class="oe_mt32 text-center" style="font-size: 16px;">
+                Pick the main root menus (Sales, Purchase, Inventory, Approvals...) you want to restrict for this user. Selecting a root menu recursively restricts access to every model exclusive to that subtree.
+            </p>
+            <div class="oe_demo oe_picture oe_screenshot text-center">
+                <img src="elegirQuecampos.png" alt="Select Menus to Block">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced feature-card">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
+                <b>3. View the Action-Restricted, Empty Result</b>
+            </h3>
+            <p class="oe_mt32 text-center" style="font-size: 16px;">
+                From the restricted user's point of view, the module remains accessible but is fully emptied.
+                Crucially, <b>no actions are allowed</b>: New, Edit, Delete, Duplicate, Import, or Export buttons are removed. Records are hidden, and ORM-level protections enforce the rule even via API.
+            </p>
+            <div class="oe_demo oe_picture oe_screenshot text-center">
+                <img src="Final.png" alt="Final Restricted View showing empty lists and no buttons">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="higa-section">
+
+    <h2>Key Features</h2>
+    <ul>
+        <li><b>Per-user configuration:</b> block modules for one user without touching groups or roles.</li>
+        <li><b>Empty lists:</b> the user sees the standard empty state inside the blocked module.</li>
+        <li><b>Buttons removed:</b> New, Edit, Delete, Duplicate, Import (Upload) and Export disappear from list, kanban and form views.</li>
+        <li><b>ORM-level enforcement:</b> direct API calls to <code>create()</code> on a blocked model raise <code>AccessError</code>.</li>
+        <li><b>Smart scope:</b> only models <i>exclusive</i> to the blocked menu are affected. Shared models (e.g. <code>res.partner</code>, <code>product.template</code>) keep working everywhere else.</li>
+        <li><b>Framework-safe:</b> <code>ir.*</code>, <code>base.*</code> and core <code>res.*</code> models (users, groups, company...) are never blocked, even if listed under a hidden menu.</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <ol>
+        <li>Drop the module in your <code>addons</code> path (e.g. <code>/mnt/extra-addons/hide_menus_per_user</code>).</li>
+        <li>Restart the Odoo server.</li>
+        <li>Activate developer mode: <i>Settings &rarr; Developer Tools &rarr; Activate the developer mode</i>.</li>
+        <li>Go to <i>Apps</i>, click <i>Update Apps List</i>, search for <b>Hide Menus per User</b> (clear the "Apps" filter, the module is in the <i>Tools</i> category) and install.</li>
+    </ol>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Open <i>Settings &rarr; Users &amp; Companies &rarr; Users</i> and pick the user you want to configure.</li>
+        <li>Switch to the <b>Blocked Modules</b> tab (added by this module).</li>
+        <li>Click <i>Add a line</i> and select one or more root menus (e.g. <i>Sales</i>, <i>Purchase</i>, <i>Inventory</i>). Only top-level menus are listed.</li>
+        <li>Save the user.</li>
+        <li>The change applies on the user's next page reload &mdash; no logout required.</li>
+    </ol>
+
+    <h2>Compatibility</h2>
+    <table class="higa-table">
+        <thead>
+            <tr>
+                <th>Odoo Version</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Odoo 16.0</td><td>Supported</td><td>Views use <code>&lt;tree&gt;</code> tag.</td></tr>
+            <tr><td>Odoo 17.0</td><td>Supported</td><td>Views use <code>&lt;tree&gt;</code> tag.</td></tr>
+            <tr><td>Odoo 18.0</td><td>Supported</td><td>Views use <code>&lt;list&gt;</code> tag.</td></tr>
+            <tr><td>Odoo 19.0</td><td>Supported</td><td>Views use <code>&lt;list&gt;</code> tag.</td></tr>
+        </tbody>
+    </table>
+
+    <h2>FAQ</h2>
+    <div class="higa-faq">
+        <p><b>Why is the menu still visible? I expected it to be hidden.</b><br/>
+        By design. The user can navigate to the module, but every list will be empty and there will be no buttons to create, edit or export anything. If you also want the menu hidden, use security groups instead.</p>
+
+        <p><b>Will the user still be able to read existing records by typing a record URL?</b><br/>
+        Reading a single record is still controlled by the standard Odoo security layer (groups, record rules). This module focuses on listing, creating and editing. To fully forbid read, also remove the user from the relevant security groups.</p>
+
+        <p><b>Does the change require a logout?</b><br/>
+        No, a page reload is enough.</p>
+
+        <p><b>Does it impact performance?</b><br/>
+        Negligible. The set of blocked models is cached per user with <code>ormcache</code>; the override only adds a frozenset membership check on each <code>_search</code> call when the user has at least one blocked module configured.</p>
+
+        <p><b>Can I block submenus only?</b><br/>
+        No. Blocking is by root menu (and applies to all the models exclusive to that subtree).</p>
+    </div>
+
+</div>
+
+<section class="oe_container oe_dark" style="background-color: #f8f9fa;">
+    <div class="oe_row oe_spaced text-center">
+        <div class="oe_span12">
+            <h2 class="oe_slogan" style="color: #714B67; font-size: 32px; padding: 15px;">
+                <b>Enhance your team's security seamlessly.</b>
+            </h2>
+            <hr style="border-top: 2px solid #e0e0e0; width: 60%; margin: 20px auto;">
+            <h2 class="oe_slogan" style="color: #212529; font-size: 26px; font-weight: 800; margin-top: 30px;">
+                Desarrollado por <a href="https://higa.group/" target="_blank" style="color: #017e84; text-decoration: none;">HIGA</a>
+            </h2>
+            <p class="oe_mt32 text-center" style="font-size: 16px;">
+                Soluciones avanzadas para tu ecosistema Odoo. <br>
+                <a href="https://higa.group/" target="_blank" style="color: #714B67; font-weight: bold; text-decoration: none;">Visita nuestra web para más información</a>
+            </p>
+            <p class="oe_mt32 text-center" style="font-size: 13px; color: #888;">License: LGPL-3</p>
+        </div>
+    </div>
+</section>
