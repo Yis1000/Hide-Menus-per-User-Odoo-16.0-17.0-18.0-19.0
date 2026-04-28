@@ -1,22 +1,22 @@
 # Hide Menus per User — Odoo 17.0
 
-Per-user module blocking for **Odoo 17.0**. Pick root menus on the user form and that user will see those modules with empty lists, no action buttons (New / Edit / Delete / Duplicate / Import / Export), and creation blocked at the ORM level.
+Bloqueo de módulos por usuario para **Odoo 17.0**. Eliges menús raíz en la ficha del usuario y ese usuario verá esos módulos con listas vacías, sin botones de acción (Nuevo / Editar / Eliminar / Duplicar / Importar / Exportar) y con la creación bloqueada a nivel ORM.
 
-This branch targets **Odoo 17.0** only. For other versions check the matching branch (`16.0`, `18.0`, `19.0`).
+Esta rama es solo para **Odoo 17.0**. Para otras versiones consulta la rama correspondiente (`16.0`, `18.0`, `19.0`).
 
-## Install
+## Instalación
 
-1. Copy `hide_menus_per_user/` into your Odoo `addons` path (e.g. `/mnt/extra-addons/`).
-2. Restart Odoo.
-3. *Apps → Update Apps List*, search **Hide Menus per User** (category *Tools*) and install.
+1. Copia `hide_menus_per_user/` a tu directorio de `addons` de Odoo (p. ej. `/mnt/extra-addons/`).
+2. Reinicia Odoo.
+3. *Aplicaciones → Actualizar lista de aplicaciones*, busca **Hide Menus per User** (categoría *Herramientas*) e instala.
 
-## Usage
+## Uso
 
-1. *Settings → Users & Companies → Users* → pick a user.
-2. Open the **Blocked Modules** tab.
-3. *Add a line* and select one or more root menus (e.g. Sales, Purchase, Inventory).
-4. Save. The change applies on the user's next page reload.
+1. *Ajustes → Usuarios y compañías → Usuarios* → elige un usuario.
+2. Abre la pestaña **Blocked Modules** (Módulos bloqueados).
+3. *Añadir una línea* y selecciona uno o varios menús raíz (p. ej. Ventas, Compras, Inventario).
+4. Guarda. El cambio se aplica al recargar la página del usuario.
 
-## License
+## Licencia
 
-LGPL-3 — Developed by [HIGA](https://higa.group/).
+LGPL-3 — Desarrollado por [HIGA](https://higa.group/).
