@@ -1,40 +1,40 @@
 # Hide Menus per User
 
-Per-user module blocking for Odoo. Pick root menus (Sales, Purchase, Inventory…) on the user form and that user will see those modules with **empty lists**, **no action buttons** (New / Edit / Delete / Duplicate / Import / Export), and creation blocked **at the ORM level** — even via API.
+Bloqueo de módulos por usuario en Odoo. Eliges menús raíz (Ventas, Compras, Inventario…) en la ficha del usuario y ese usuario verá esos módulos con **listas vacías**, **sin botones de acción** (Nuevo / Editar / Eliminar / Duplicar / Importar / Exportar) y la creación bloqueada **a nivel ORM** — incluso vía API.
 
-Unlike security groups, the configuration is **per individual user**: two users with the same security profile can have different sets of blocked modules.
+A diferencia de los grupos de seguridad, la configuración es **por usuario individual**: dos usuarios con el mismo perfil de seguridad pueden tener distintos módulos bloqueados.
 
-## Branches
+## Ramas
 
-This repository ships one branch per supported Odoo version. Each branch contains the module at the root, ready to drop into your `addons` path.
+Este repositorio publica una rama por versión soportada de Odoo. Cada rama contiene el módulo en la raíz, listo para soltar en tu directorio de `addons`.
 
-| Branch | Odoo Version |
+| Rama | Versión de Odoo |
 |--------|--------------|
 | [`16.0`](../../tree/16.0) | Odoo 16.0 |
 | [`17.0`](../../tree/17.0) | Odoo 17.0 |
 | [`18.0`](../../tree/18.0) | Odoo 18.0 |
 | [`19.0`](../../tree/19.0) | Odoo 19.0 |
 
-## Quick install
+## Instalación rápida
 
 ```bash
 git clone -b 18.0 https://github.com/Yis1000/Hide-Menus-per-User-Odoo-16.0-17.0-18.0-19.0.git
-cp -r Hide-Menus-per-User-Odoo-16.0-17.0-18.0-19.0/hide_menus_per_user /path/to/your/odoo/addons/
+cp -r Hide-Menus-per-User-Odoo-16.0-17.0-18.0-19.0/hide_menus_per_user /ruta/a/tu/odoo/addons/
 ```
 
-Then restart Odoo, update the apps list and install **Hide Menus per User** (category *Tools*).
+Después reinicia Odoo, actualiza la lista de aplicaciones e instala **Hide Menus per User** (categoría *Herramientas*).
 
-## Usage
+## Uso
 
-1. Open *Settings → Users & Companies → Users* and pick the user.
-2. Switch to the **Blocked Modules** tab.
-3. Click *Add a line* and pick one or more root menus.
-4. Save. The change applies on the user's next page reload — no logout required.
+1. Abre *Ajustes → Usuarios y compañías → Usuarios* y elige el usuario.
+2. Ve a la pestaña **Blocked Modules** (Módulos bloqueados).
+3. Pulsa *Añadir una línea* y selecciona uno o varios menús raíz.
+4. Guarda. El cambio se aplica al recargar la página del usuario — no hace falta cerrar sesión.
 
-## License
+## Licencia
 
 LGPL-3
 
-## Author
+## Autor
 
-Developed by [HIGA](https://higa.group/).
+Desarrollado por [HIGA](https://higa.group/).
