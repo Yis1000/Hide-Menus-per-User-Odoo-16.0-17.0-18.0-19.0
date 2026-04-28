@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_users_form_hidden_menus" model="ir.ui.view">
+        <field name="name">res.users.form.hidden.menus</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="hidden_menus" string="Blocked Modules">
+                    <p class="text-muted">
+                        Select root menus (modules) to block for this user.
+                        Selected modules will appear in the menu, but their lists will
+                        be empty and the New / Edit / Delete / Import / Export buttons
+                        will be hidden. Creation is also blocked at the ORM level.
+                        Changes take effect on the next page reload.
+                    </p>
+                    <field name="hidden_menu_ids" nolabel="1">
+                        <tree>
+                            <field name="complete_name"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
