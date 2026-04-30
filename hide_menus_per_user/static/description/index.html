@@ -12,34 +12,84 @@
         margin-bottom: 20px;
         font-weight: 700;
     }
-    .oe_screenshot img {
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        max-width: 90%;
-        margin: 20px auto;
-        display: block;
-        transition: transform 0.3s ease;
-    }
-    .oe_screenshot img:hover {
-        transform: scale(1.02);
-    }
-    .text-center {
-        text-align: center;
-    }
+    .text-center { text-align: center; }
     .oe_mt32 {
         margin-top: 32px;
         color: #495057;
         line-height: 1.6;
-        max-width: 800px;
+        max-width: 820px;
         margin-left: auto;
         margin-right: auto;
     }
-    .feature-card {
-        background: white;
-        padding: 30px;
+    .higa-cover {
+        text-align: center;
+        padding: 36px 16px 12px;
+    }
+    .higa-cover img {
+        width: 160px;
+        height: 160px;
+        border-radius: 28px;
+        box-shadow: 0 14px 40px rgba(113,75,103,0.35);
+        display: block;
+        margin: 0 auto 24px;
+    }
+    .higa-tutorial {
+        max-width: 1040px;
+        margin: 30px auto;
+        padding: 0 16px;
+    }
+    .higa-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+        background: #ffffff;
+        border: 1px solid #efeaee;
+        border-radius: 16px;
+        padding: 28px;
+        margin: 24px 0;
+        box-shadow: 0 6px 22px rgba(0,0,0,0.05);
+    }
+    .higa-step-num {
+        flex: 0 0 64px;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #714B67 0%, #4e3447 100%);
+        color: #fff;
+        font-weight: 800;
+        font-size: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 16px rgba(113,75,103,0.35);
+    }
+    .higa-step-body { flex: 1; min-width: 0; }
+    .higa-step-body h3 {
+        margin: 4px 0 10px;
+        color: #017e84;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .higa-step-body p {
+        color: #495057;
+        line-height: 1.65;
+        font-size: 15.5px;
+    }
+    .higa-step-img {
+        margin-top: 18px;
+        text-align: center;
+    }
+    .higa-step-img img {
+        width: 100%;
+        max-width: 920px;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        margin: 20px 0;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+    }
+    .higa-step-caption {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #888;
+        font-style: italic;
     }
     .higa-section {
         max-width: 960px;
@@ -70,12 +120,8 @@
         text-align: left;
         border: 1px solid #ddd;
     }
-    .higa-table th {
-        background: #f4f0f3;
-    }
-    .higa-faq p {
-        margin: 14px 0;
-    }
+    .higa-table th { background: #f4f0f3; }
+    .higa-faq p { margin: 14px 0; }
     .higa-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -98,84 +144,91 @@
         font-weight: 600;
         background: #e9f7f7;
         color: #017e84;
-        margin-right: 6px;
+        margin: 2px 4px;
     }
 </style>
 
-<section class="oe_container">
-    <div class="col-md-12 text-center">
-        <h2 class="oe_slogan" style="font-size: 42px; color: #714B67; text-transform: uppercase; letter-spacing: 1px;">
-            <b>Hide Menus per User</b>
-        </h2>
-        <h3 class="oe_slogan" style="opacity: 0.8; font-size: 22px; color: #212529;">
-            Per-user module lock-down: empty lists, no buttons, ORM-level enforcement
-        </h3>
-        <p class="oe_mt32 text-center" style="font-size: 18px; color: #6c757d;">
-            Restrict access to selected root menus on a per-user basis without touching security groups or record rules.
-            The user keeps the menu visible, but every list inside is empty and every action button (New, Edit, Delete,
-            Duplicate, Import, Export) is removed. Programmatic creation through the API is also blocked.
-        </p>
-        <p class="oe_mt32 text-center" style="font-size: 14px; color: #888;">
-            <span class="higa-pill">Odoo 16.0</span>
-            <span class="higa-pill">Odoo 17.0</span>
-            <span class="higa-pill">Odoo 18.0</span>
-            <span class="higa-pill">Odoo 19.0</span>
-        </p>
-    </div>
+<section class="oe_container higa-cover">
+    <img src="icon.png" alt="Hide Menus per User"/>
+    <h2 class="oe_slogan" style="font-size: 42px; color: #714B67; text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">
+        <b>Hide Menus per User</b>
+    </h2>
+    <h3 class="oe_slogan" style="opacity: 0.85; font-size: 22px; color: #212529;">
+        Per-user module lock-down: empty lists, no buttons, ORM-level enforcement
+    </h3>
+    <p class="oe_mt32 text-center" style="font-size: 17px; color: #6c757d;">
+        Restrict access to selected root menus on a per-user basis without touching security groups or record rules.
+        The user keeps the menu visible, but every list inside is empty and every action button (New, Edit, Delete,
+        Duplicate, Import, Export) is removed. Programmatic creation through the API is also blocked.
+    </p>
+    <p class="text-center" style="margin-top: 16px;">
+        <span class="higa-pill">Odoo 16.0</span>
+        <span class="higa-pill">Odoo 17.0</span>
+        <span class="higa-pill">Odoo 18.0</span>
+        <span class="higa-pill">Odoo 19.0</span>
+    </p>
 </section>
 
 <section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced feature-card">
-        <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>Step 1 &mdash; Open the user and add a Hidden Menus line</b>
-            </h3>
-            <p class="oe_mt32 text-center" style="font-size: 16px;">
-                Go to <i>Settings &rarr; Users &amp; Companies &rarr; Users</i>, open the user you want to restrict, and
-                switch to the <b>Hidden Menus</b> tab. Click <i>Add a line</i> to start picking the modules you want to
-                lock down for that user.
-            </p>
-            <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="Usuario-ElegirLinea.png" alt="Hidden Menus tab on the user form">
-            </div>
-        </div>
-    </div>
-</section>
+    <h2 class="oe_slogan" style="color: #714B67; font-size: 30px; margin-top: 10px;">Step-by-step tutorial</h2>
+    <p class="oe_mt32 text-center" style="font-size: 16px;">
+        Configuring a restriction is a 3-step process from the user form. No code, no external tool.
+    </p>
 
-<section class="oe_container">
-    <div class="oe_row oe_spaced feature-card">
-        <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>Step 2 &mdash; Select the root menus to restrict</b>
-            </h3>
-            <p class="oe_mt32 text-center" style="font-size: 16px;">
-                A picker shows every <b>root menu</b> available in the database (Sales, Purchase, Inventory, Invoicing,
-                Dashboards, Settings...). Select one or several. Choosing a root menu automatically applies the restriction
-                to every model that lives exclusively inside that subtree, no need to enumerate sub-menus.
-            </p>
-            <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="elegirQuecampos.png" alt="Picker with the list of root menus">
-            </div>
-        </div>
-    </div>
-</section>
+    <div class="higa-tutorial">
 
-<section class="oe_container oe_dark">
-    <div class="oe_row oe_spaced feature-card">
-        <div class="oe_span12">
-            <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>Step 3 &mdash; The user sees an empty, action-less module</b>
-            </h3>
-            <p class="oe_mt32 text-center" style="font-size: 16px;">
-                When the restricted user logs in, the module is still navigable but every list, kanban and search
-                view comes back empty. The <i>New</i>, <i>Edit</i>, <i>Delete</i>, <i>Duplicate</i>, <i>Import</i> and
-                <i>Export</i> buttons are removed from list, kanban and form views, and any direct
-                <code>create()</code> call against a blocked model raises <code>AccessError</code>.
-            </p>
-            <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="Final.png" alt="Restricted user view: empty list and no action buttons">
+        <div class="higa-step">
+            <div class="higa-step-num">1</div>
+            <div class="higa-step-body">
+                <h3>Open the user and go to the Hidden Menus tab</h3>
+                <p>
+                    Navigate to <i>Settings &rarr; Users &amp; Companies &rarr; Users</i> and open the user you want to
+                    restrict. The module adds a new tab labelled <b>Hidden Menus</b> next to <i>Access Rights</i>,
+                    <i>Preferences</i> and <i>Account Security</i>. Click <b>Add a line</b> to start picking modules.
+                </p>
+                <div class="higa-step-img">
+                    <img src="Usuario-ElegirLinea.png" alt="Hidden Menus tab on the user form with the Add a line button highlighted"/>
+                    <div class="higa-step-caption">User form &mdash; the new <b>Hidden Menus</b> tab and the <b>Add a line</b> entry point.</div>
+                </div>
             </div>
         </div>
+
+        <div class="higa-step">
+            <div class="higa-step-num">2</div>
+            <div class="higa-step-body">
+                <h3>Select the root menus to restrict</h3>
+                <p>
+                    A picker appears listing every <b>root menu</b> available in the database (Sales, Purchase,
+                    Inventory, Invoicing, Dashboards, Settings...). Select one or several &mdash; in the screenshot
+                    below, <i>Sales</i> and <i>Inventory</i> are picked. Choosing a root menu automatically applies the
+                    restriction to every model that lives <i>exclusively</i> inside that subtree, so you do not need to
+                    enumerate sub-menus.
+                </p>
+                <div class="higa-step-img">
+                    <img src="elegirQuecampos.png" alt="Picker dialog listing all root menus, with Sales and Inventory selected"/>
+                    <div class="higa-step-caption">Root-menu picker &mdash; multi-select supported, scope is the entire subtree of each chosen menu.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="higa-step">
+            <div class="higa-step-num">3</div>
+            <div class="higa-step-body">
+                <h3>The user sees the module empty and action-less</h3>
+                <p>
+                    Save the user. On the next page reload, the restricted user can still navigate to the blocked
+                    module, but every list, kanban and search view comes back empty. The <i>New</i>, <i>Edit</i>,
+                    <i>Delete</i>, <i>Duplicate</i>, <i>Import</i> and <i>Export</i> buttons are removed from list,
+                    kanban and form views, and any direct <code>create()</code> call (UI or RPC) raises
+                    <code>AccessError</code>.
+                </p>
+                <div class="higa-step-img">
+                    <img src="Final.png" alt="Restricted user view: empty list and no action buttons"/>
+                    <div class="higa-step-caption">Restricted user perspective &mdash; the module is reachable, but lists are empty and no buttons are exposed.</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -183,16 +236,16 @@
 
     <h2>How it works</h2>
     <p>
-        The module adds a <code>Many2many</code> field <code>hidden_menu_ids</code> on <code>res.users</code> pointing to
-        <code>ir.ui.menu</code>, restricted to root menus only. From there it does three things:
+        The module adds a <code>Many2many</code> field <code>hidden_menu_ids</code> on <code>res.users</code> pointing
+        to <code>ir.ui.menu</code>, restricted to root menus only. From there it does four things:
     </p>
     <div class="higa-grid">
         <div class="higa-tile">
             <b>1. Resolve blocked models</b><br/>
-            For each user, the module walks the menu tree under every selected root menu and collects the action models.
-            Models also reachable from a non-blocked menu are excluded, so shared models (<code>res.partner</code>,
-            <code>product.template</code>...) keep working normally everywhere else. The result is cached per user
-            with <code>ormcache</code>.
+            For each user, the module walks the menu tree under every selected root menu and collects the action
+            models. Models also reachable from a non-blocked menu are excluded, so shared models
+            (<code>res.partner</code>, <code>product.template</code>...) keep working everywhere else. The result is
+            cached per user with <code>ormcache</code>.
         </div>
         <div class="higa-tile">
             <b>2. Empty the lists</b><br/>
@@ -209,7 +262,7 @@
         <div class="higa-tile">
             <b>4. Block the ORM</b><br/>
             <code>create()</code> is overridden to raise <code>AccessError</code> on blocked models, so even an
-            external script using XML-RPC / JSON-RPC cannot bypass the restriction.
+            external script using XML-RPC or JSON-RPC cannot bypass the restriction.
         </div>
     </div>
 
@@ -245,15 +298,6 @@
         <li>Restart the Odoo server.</li>
         <li>Activate developer mode: <i>Settings &rarr; Developer Tools &rarr; Activate the developer mode</i>.</li>
         <li>Go to <i>Apps</i>, click <i>Update Apps List</i>, search for <b>Hide Menus per User</b> (the module is in the <i>Tools</i> category) and install.</li>
-    </ol>
-
-    <h2>Usage</h2>
-    <ol>
-        <li>Open <i>Settings &rarr; Users &amp; Companies &rarr; Users</i> and pick the user.</li>
-        <li>Switch to the <b>Hidden Menus</b> tab.</li>
-        <li>Click <i>Add a line</i> and select the root menus (e.g. <i>Sales</i>, <i>Purchase</i>, <i>Inventory</i>) to restrict.</li>
-        <li>Save the user.</li>
-        <li>The change applies on the user's next page reload &mdash; no logout required.</li>
     </ol>
 
     <h2>Compatibility</h2>
