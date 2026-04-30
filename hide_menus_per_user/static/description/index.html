@@ -76,21 +76,50 @@
     .higa-faq p {
         margin: 14px 0;
     }
+    .higa-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+    }
+    .higa-tile {
+        background: #fff;
+        border: 1px solid #eee;
+        border-left: 4px solid #017e84;
+        border-radius: 8px;
+        padding: 16px 18px;
+    }
+    .higa-tile b { color: #714B67; }
+    .higa-pill {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #e9f7f7;
+        color: #017e84;
+        margin-right: 6px;
+    }
 </style>
 
 <section class="oe_container">
     <div class="col-md-12 text-center">
         <h2 class="oe_slogan" style="font-size: 42px; color: #714B67; text-transform: uppercase; letter-spacing: 1px;">
-            <b>Hide Menus Per User</b>
+            <b>Hide Menus per User</b>
         </h2>
         <h3 class="oe_slogan" style="opacity: 0.8; font-size: 22px; color: #212529;">
-            Total Control over User Access
+            Per-user module lock-down: empty lists, no buttons, ORM-level enforcement
         </h3>
         <p class="oe_mt32 text-center" style="font-size: 18px; color: #6c757d;">
-            Securely block selected modules on a per-user basis. Present empty lists, completely hide creation/editing buttons, and strictly restrict creation directly at the ORM level.
+            Restrict access to selected root menus on a per-user basis without touching security groups or record rules.
+            The user keeps the menu visible, but every list inside is empty and every action button (New, Edit, Delete,
+            Duplicate, Import, Export) is removed. Programmatic creation through the API is also blocked.
         </p>
         <p class="oe_mt32 text-center" style="font-size: 14px; color: #888;">
-            Compatible with Odoo 16.0 &middot; 17.0 &middot; 18.0 &middot; 19.0
+            <span class="higa-pill">Odoo 16.0</span>
+            <span class="higa-pill">Odoo 17.0</span>
+            <span class="higa-pill">Odoo 18.0</span>
+            <span class="higa-pill">Odoo 19.0</span>
         </p>
     </div>
 </section>
@@ -99,13 +128,15 @@
     <div class="oe_row oe_spaced feature-card">
         <div class="oe_span12">
             <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>1. Configure Blocked Modules via User Settings</b>
+                <b>Step 1 &mdash; Open the user and add a Hidden Menus line</b>
             </h3>
             <p class="oe_mt32 text-center" style="font-size: 16px;">
-                Open any User profile and find the new <b>"Blocked Modules"</b> tab. This native-looking integration gives administrators a straightforward way to manage permissions per user.
+                Go to <i>Settings &rarr; Users &amp; Companies &rarr; Users</i>, open the user you want to restrict, and
+                switch to the <b>Hidden Menus</b> tab. Click <i>Add a line</i> to start picking the modules you want to
+                lock down for that user.
             </p>
             <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="Usuario-ElegirLinea.png" alt="User Form Configuration Tab">
+                <img src="Usuario-ElegirLinea.png" alt="Hidden Menus tab on the user form">
             </div>
         </div>
     </div>
@@ -115,13 +146,15 @@
     <div class="oe_row oe_spaced feature-card">
         <div class="oe_span12">
             <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>2. Select Root Menus to Restrict</b>
+                <b>Step 2 &mdash; Select the root menus to restrict</b>
             </h3>
             <p class="oe_mt32 text-center" style="font-size: 16px;">
-                Pick the main root menus (Sales, Purchase, Inventory, Approvals...) you want to restrict for this user. Selecting a root menu recursively restricts access to every model exclusive to that subtree.
+                A picker shows every <b>root menu</b> available in the database (Sales, Purchase, Inventory, Invoicing,
+                Dashboards, Settings...). Select one or several. Choosing a root menu automatically applies the restriction
+                to every model that lives exclusively inside that subtree, no need to enumerate sub-menus.
             </p>
             <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="elegirQuecampos.png" alt="Select Menus to Block">
+                <img src="elegirQuecampos.png" alt="Picker with the list of root menus">
             </div>
         </div>
     </div>
@@ -131,14 +164,16 @@
     <div class="oe_row oe_spaced feature-card">
         <div class="oe_span12">
             <h3 class="oe_slogan" style="color: #017e84; font-size: 28px;">
-                <b>3. View the Action-Restricted, Empty Result</b>
+                <b>Step 3 &mdash; The user sees an empty, action-less module</b>
             </h3>
             <p class="oe_mt32 text-center" style="font-size: 16px;">
-                From the restricted user's point of view, the module remains accessible but is fully emptied.
-                Crucially, <b>no actions are allowed</b>: New, Edit, Delete, Duplicate, Import, or Export buttons are removed. Records are hidden, and ORM-level protections enforce the rule even via API.
+                When the restricted user logs in, the module is still navigable but every list, kanban and search
+                view comes back empty. The <i>New</i>, <i>Edit</i>, <i>Delete</i>, <i>Duplicate</i>, <i>Import</i> and
+                <i>Export</i> buttons are removed from list, kanban and form views, and any direct
+                <code>create()</code> call against a blocked model raises <code>AccessError</code>.
             </p>
             <div class="oe_demo oe_picture oe_screenshot text-center">
-                <img src="Final.png" alt="Final Restricted View showing empty lists and no buttons">
+                <img src="Final.png" alt="Restricted user view: empty list and no action buttons">
             </div>
         </div>
     </div>
@@ -146,14 +181,62 @@
 
 <div class="higa-section">
 
-    <h2>Key Features</h2>
+    <h2>How it works</h2>
+    <p>
+        The module adds a <code>Many2many</code> field <code>hidden_menu_ids</code> on <code>res.users</code> pointing to
+        <code>ir.ui.menu</code>, restricted to root menus only. From there it does three things:
+    </p>
+    <div class="higa-grid">
+        <div class="higa-tile">
+            <b>1. Resolve blocked models</b><br/>
+            For each user, the module walks the menu tree under every selected root menu and collects the action models.
+            Models also reachable from a non-blocked menu are excluded, so shared models (<code>res.partner</code>,
+            <code>product.template</code>...) keep working normally everywhere else. The result is cached per user
+            with <code>ormcache</code>.
+        </div>
+        <div class="higa-tile">
+            <b>2. Empty the lists</b><br/>
+            <code>_search</code> is overridden so that, when the current user has at least one blocked model, queries
+            against those models return no records. The view still renders &mdash; the user just sees the standard
+            empty state.
+        </div>
+        <div class="higa-tile">
+            <b>3. Remove the buttons</b><br/>
+            List, kanban and form views inherit from <code>base</code> with attributes that disable
+            <code>create</code>, <code>edit</code>, <code>delete</code>, <code>duplicate</code>,
+            <code>import</code> and <code>export</code> when the model is blocked for the user.
+        </div>
+        <div class="higa-tile">
+            <b>4. Block the ORM</b><br/>
+            <code>create()</code> is overridden to raise <code>AccessError</code> on blocked models, so even an
+            external script using XML-RPC / JSON-RPC cannot bypass the restriction.
+        </div>
+    </div>
+
+    <h2>What is and is not protected</h2>
+    <table class="higa-table">
+        <thead>
+            <tr><th>Behavior</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Lists / kanban inside a blocked module</td><td>Empty</td></tr>
+            <tr><td>New / Edit / Delete / Duplicate buttons</td><td>Removed</td></tr>
+            <tr><td>Import (Upload) / Export buttons</td><td>Removed</td></tr>
+            <tr><td>Direct <code>create()</code> via UI or RPC on a blocked model</td><td>Blocked (AccessError)</td></tr>
+            <tr><td>Reading a single record by URL</td><td>Still governed by standard Odoo security (groups + record rules)</td></tr>
+            <tr><td>Framework models (<code>ir.*</code>, <code>base.*</code>, <code>res.users</code>, <code>res.groups</code>, <code>res.company</code>...)</td><td>Never blocked, even if listed under a blocked menu</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Key features</h2>
     <ul>
-        <li><b>Per-user configuration:</b> block modules for one user without touching groups or roles.</li>
-        <li><b>Empty lists:</b> the user sees the standard empty state inside the blocked module.</li>
-        <li><b>Buttons removed:</b> New, Edit, Delete, Duplicate, Import (Upload) and Export disappear from list, kanban and form views.</li>
-        <li><b>ORM-level enforcement:</b> direct API calls to <code>create()</code> on a blocked model raise <code>AccessError</code>.</li>
-        <li><b>Smart scope:</b> only models <i>exclusive</i> to the blocked menu are affected. Shared models (e.g. <code>res.partner</code>, <code>product.template</code>) keep working everywhere else.</li>
-        <li><b>Framework-safe:</b> <code>ir.*</code>, <code>base.*</code> and core <code>res.*</code> models (users, groups, company...) are never blocked, even if listed under a hidden menu.</li>
+        <li><b>Per-user configuration:</b> set up directly on the user form, no security groups to create.</li>
+        <li><b>Granularity by root menu:</b> pick Sales, Purchase, Inventory, Invoicing... selecting a root applies to every exclusive sub-model.</li>
+        <li><b>Smart scope:</b> shared models (e.g. <code>res.partner</code>, <code>product.template</code>) stay usable from non-blocked menus.</li>
+        <li><b>Framework-safe:</b> <code>ir.*</code>, <code>base.*</code> and core <code>res.*</code> models are excluded from blocking on principle.</li>
+        <li><b>ORM-level enforcement:</b> creation is blocked for direct API calls, not only in the UI.</li>
+        <li><b>Cached and lightweight:</b> blocked-model set is computed once per user and cached with <code>ormcache</code>.</li>
+        <li><b>Reload, no logout:</b> changes apply on the next page reload.</li>
     </ul>
 
     <h2>Installation</h2>
@@ -161,14 +244,14 @@
         <li>Drop the module in your <code>addons</code> path (e.g. <code>/mnt/extra-addons/hide_menus_per_user</code>).</li>
         <li>Restart the Odoo server.</li>
         <li>Activate developer mode: <i>Settings &rarr; Developer Tools &rarr; Activate the developer mode</i>.</li>
-        <li>Go to <i>Apps</i>, click <i>Update Apps List</i>, search for <b>Hide Menus per User</b> (clear the "Apps" filter, the module is in the <i>Tools</i> category) and install.</li>
+        <li>Go to <i>Apps</i>, click <i>Update Apps List</i>, search for <b>Hide Menus per User</b> (the module is in the <i>Tools</i> category) and install.</li>
     </ol>
 
     <h2>Usage</h2>
     <ol>
-        <li>Open <i>Settings &rarr; Users &amp; Companies &rarr; Users</i> and pick the user you want to configure.</li>
-        <li>Switch to the <b>Blocked Modules</b> tab (added by this module).</li>
-        <li>Click <i>Add a line</i> and select one or more root menus (e.g. <i>Sales</i>, <i>Purchase</i>, <i>Inventory</i>). Only top-level menus are listed.</li>
+        <li>Open <i>Settings &rarr; Users &amp; Companies &rarr; Users</i> and pick the user.</li>
+        <li>Switch to the <b>Hidden Menus</b> tab.</li>
+        <li>Click <i>Add a line</i> and select the root menus (e.g. <i>Sales</i>, <i>Purchase</i>, <i>Inventory</i>) to restrict.</li>
         <li>Save the user.</li>
         <li>The change applies on the user's next page reload &mdash; no logout required.</li>
     </ol>
@@ -193,19 +276,28 @@
     <h2>FAQ</h2>
     <div class="higa-faq">
         <p><b>Why is the menu still visible? I expected it to be hidden.</b><br/>
-        By design. The user can navigate to the module, but every list will be empty and there will be no buttons to create, edit or export anything. If you also want the menu hidden, use security groups instead.</p>
+        By design. The user can still navigate to the module, but every list will be empty and there will be no buttons
+        to create, edit or export anything. If you also want the menu itself hidden, combine this module with security
+        groups.</p>
 
         <p><b>Will the user still be able to read existing records by typing a record URL?</b><br/>
-        Reading a single record is still controlled by the standard Odoo security layer (groups, record rules). This module focuses on listing, creating and editing. To fully forbid read, also remove the user from the relevant security groups.</p>
+        Reading a single record is still controlled by the standard Odoo security layer (groups and record rules). This
+        module focuses on listing, creating and editing. To fully forbid read, also remove the user from the relevant
+        security groups.</p>
 
         <p><b>Does the change require a logout?</b><br/>
         No, a page reload is enough.</p>
 
         <p><b>Does it impact performance?</b><br/>
-        Negligible. The set of blocked models is cached per user with <code>ormcache</code>; the override only adds a frozenset membership check on each <code>_search</code> call when the user has at least one blocked module configured.</p>
+        Negligible. The set of blocked models is cached per user with <code>ormcache</code>; the override only adds a
+        frozenset membership check on each <code>_search</code> call when the user has at least one blocked module
+        configured.</p>
 
         <p><b>Can I block submenus only?</b><br/>
-        No. Blocking is by root menu (and applies to all the models exclusive to that subtree).</p>
+        No. Restriction is by root menu and applies to every model exclusive to that subtree.</p>
+
+        <p><b>Does it work with multi-company?</b><br/>
+        Yes. The configuration is per user, so multi-company set-ups are supported transparently.</p>
     </div>
 
 </div>
