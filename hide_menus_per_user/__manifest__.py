@@ -13,6 +13,7 @@ ORM level for those models, even via API.
     "license": "LGPL-3",
     "category": "Tools",
     "depends": ["base"],
+    "images": ["static/description/banner.png"],
     "data": [
         "views/res_users_views.xml",
     ],
