@@ -8,7 +8,7 @@ user form and the user will see those modules with empty lists and no action but
 no New, Edit, Delete, Duplicate, Import or Export. Creation is also blocked at the
 ORM level for those models, even via API.
     """,
-    "author": "HIGA",
+    'author': 'Higa Solutions',
     "website": "https://higa.group/",
     "license": "LGPL-3",
     "category": "Tools",
@@ -20,3 +20,4 @@ ORM level for those models, even via API.
     "installable": True,
     "application": False,
 }
+
