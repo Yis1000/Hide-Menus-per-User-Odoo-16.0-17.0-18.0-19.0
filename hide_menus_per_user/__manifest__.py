@@ -2,7 +2,7 @@
     "name": "Hide Menus per User",
     "version": "18.0.1.2.0",
     "summary": "Block selected modules per user: empty lists, no buttons, no creation",
-    "author": "HIGA",
+    'author': 'Higa Solutions',
     "website": "https://higa.group/",
     "license": "LGPL-3",
     "category": "Tools",
@@ -14,3 +14,4 @@
     "installable": True,
     "application": False,
 }
+
