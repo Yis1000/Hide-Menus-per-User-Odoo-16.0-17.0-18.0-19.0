@@ -1,6 +1,6 @@
 from odoo import _, api, models
 from odoo.exceptions import AccessError
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 _NEVER_HIDE = frozenset({
@@ -28,7 +28,7 @@ class Base(models.AbstractModel):
     @api.model
     def _search(self, domain, *args, **kwargs):
         if self._hide_for_current_user():
-            return super()._search(expression.FALSE_DOMAIN, *args, **kwargs)
+            return super()._search(Domain.FALSE, *args, **kwargs)
         return super()._search(domain, *args, **kwargs)
 
     @api.model_create_multi

@@ -1,8 +1,8 @@
-# Hide Menus per User — Odoo 19.0
+# Hide Menus per User — Odoo 20.0
 
-Bloqueo de módulos por usuario para **Odoo 19.0**. Eliges menús raíz en la ficha del usuario y ese usuario verá esos módulos con listas vacías, sin botones de acción (Nuevo / Editar / Eliminar / Duplicar / Importar / Exportar) y con la creación bloqueada a nivel ORM.
+Bloqueo de módulos por usuario para **Odoo 20.0**. Eliges menús raíz en la ficha del usuario y ese usuario verá esos módulos con listas vacías, sin botones de acción (Nuevo / Editar / Eliminar / Duplicar / Importar / Exportar) y con la creación bloqueada a nivel ORM.
 
-Esta rama es solo para **Odoo 19.0**. Para otras versiones consulta la rama correspondiente (`16.0`, `17.0`, `18.0`).
+Esta rama es solo para **Odoo 20.0**. Para otras versiones consulta la rama correspondiente (`16.0`, `17.0`, `18.0`).
 
 ## Instalación
 

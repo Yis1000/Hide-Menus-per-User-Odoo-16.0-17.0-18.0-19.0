@@ -1,6 +1,6 @@
 {
     "name": "Hide Menus per User",
-    "version": "19.0.1.2.0",
+    "version": "20.0.1.2.0",
     "summary": "Block selected modules per user: empty lists, no buttons, no creation",
     "description": """
 Per-user module blocking. Pick root menus (Sales, Purchase, Inventory...) from the

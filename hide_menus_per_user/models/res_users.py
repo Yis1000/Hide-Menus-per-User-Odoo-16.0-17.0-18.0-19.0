@@ -1,4 +1,4 @@
-from odoo import fields, models, tools
+from odoo import api, fields, models
 
 
 _ACTION_MODEL_FIELD = {
@@ -27,7 +27,7 @@ class ResUsers(models.Model):
     def SELF_READABLE_FIELDS(self):
         return super().SELF_READABLE_FIELDS + ["hidden_menu_ids"]
 
-    @tools.ormcache("self.id")
+    @api.ormcache("self.id")
     def _hidden_model_names(self):
         self.ensure_one()
         if not self.hidden_menu_ids:
@@ -58,5 +58,5 @@ class ResUsers(models.Model):
     def write(self, vals):
         res = super().write(vals)
         if "hidden_menu_ids" in vals:
-            self.env.registry.clear_cache()
+            self.env.transaction.invalidate_ormcache()
         return res
