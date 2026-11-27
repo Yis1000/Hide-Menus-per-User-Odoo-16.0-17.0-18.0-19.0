@@ -23,10 +23,6 @@ class ResUsers(models.Model):
              "Import / Export) and creation is blocked at the ORM level.",
     )
 
-    @property
-    def SELF_READABLE_FIELDS(self):
-        return super().SELF_READABLE_FIELDS + ["hidden_menu_ids"]
-
     @api.ormcache("self.id")
     def _hidden_model_names(self):
         self.ensure_one()
